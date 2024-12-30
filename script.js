@@ -14,6 +14,32 @@ const foodImages = [
   return img;
 });
 
+// Pyyhkäisyeleet
+let startX, startY, endX, endY;
+
+canvas.addEventListener('touchstart', (e) => {
+  const touch = e.touches[0];
+  startX = touch.clientX;
+  startY = touch.clientY;
+});
+
+canvas.addEventListener('touchend', (e) => {
+  const touch = e.changedTouches[0];
+  endX = touch.clientX;
+  endY = touch.clientY;
+
+  const dxTouch = endX - startX;
+  const dyTouch = endY - startY;
+
+  if (Math.abs(dxTouch) > Math.abs(dyTouch)) {
+    if (dxTouch > 0 && dx === 0) { dx = 1; dy = 0; } // Oikealle
+    if (dxTouch < 0 && dx === 0) { dx = -1; dy = 0; } // Vasemmalle
+  } else {
+    if (dyTouch > 0 && dy === 0) { dx = 0; dy = 1; } // Alas
+    if (dyTouch < 0 && dy === 0) { dx = 0; dy = -1; } // Ylös
+  }
+});
+
 // Asetukset
 const gridSize = 20;
 const tileCount = 20;
