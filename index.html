@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matopeli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tervetuloa Mahtavaan Matopeliin!</h1>
+
+  <!-- Pisteet -->
+  <div id="scoreBoard">
+    <span id="score">Score: 0</span>
+  </div>
+
+  <!-- Pelialue -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Nimen kysyminen -->
+  <div id="nameInput" style="display: none;">
+    <label for="playerName">Syötä nimesi:</label>
+    <input type="text" id="playerName" placeholder="Nimesi" />
+    <button onclick="saveName()">Tallenna</button>
+  </div>
+
+  <!-- High score -lista -->
+  <div id="highScores">
+  <h3>High Scores:</h3>
+  <ol id="scoreList"></ol>
+  <button id="resetHighScores" onclick="resetHighScores()">Resetoi High Score</button>
+</div>
+
+
+  <!-- Ääni -->
+  <audio id="dingSound" src="bell_like_ding.wav"></audio>
+
+  <!-- Pelin JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
